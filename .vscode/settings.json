@@ -4,6 +4,7 @@
         "appnope",
         "asttokens",
         "backcall",
+        "backref",
         "dateutil",
         "exceptiongroup",
         "Geri",

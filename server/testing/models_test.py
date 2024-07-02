@@ -1,7 +1,7 @@
-import pytest
+import pytest # type: ignore
 from app import app
 from models import db, Restaurant, Pizza, RestaurantPizza
-from faker import Faker
+from faker import Faker # type: ignore
 
 
 class TestRestaurantPizza:

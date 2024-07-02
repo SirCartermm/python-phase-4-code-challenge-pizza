@@ -14,7 +14,7 @@ class Pizza(db.Model):
     ingredients = db.Column(db.String(200), nullable=False)
     restaurant_pizzas = db.relationship('RestaurantPizza', backref='pizza', lazy=True, cascade='all, delete')
 
-class RestaurantPizza(db.Model):
+class RestaurantPizza(db.Model): # type: ignore
     id = db.Column(db.Integer, primary_key=True)
     price = db.Column(db.Integer, nullable=False)
     restaurant_id = db.Column(db.Integer, db.ForeignKey('restaurant.id'), nullable=False)

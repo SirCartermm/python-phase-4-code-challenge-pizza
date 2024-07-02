@@ -1,5 +1,5 @@
-from flask import jsonify, request # type: ignore
-from server .import app, db # type: ignore
+from flask import jsonify, request
+from server import app, db # type: ignore
 from server.models import Restaurant, Pizza, RestaurantPizza
 
 @app.route('/restaurants', methods=['GET']) # type: ignore
@@ -43,3 +43,6 @@ def create_restaurant_pizza():
         return jsonify(restaurant_pizza.to_dict()), 201
     else:
         return jsonify({'errors': 'Invalid request'}), 400
+
+if __name__ == '__main__':
+    app.run(debug=True) # type: ignore

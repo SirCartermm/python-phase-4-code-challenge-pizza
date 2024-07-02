@@ -1,0 +1,10 @@
+from flask import jsonify, request
+from server import app, db
+from server.models import Restaurant, Pizza, RestaurantPizza
+
+@app.route('/restaurants', methods=['GET'])
+def get_restaurants():
+    restaurants = Restaurant.query.all()
+    return jsonify([r.to_dict() for r in restaurants])
+
+@app.route('/restaurants/<int:id>', methods=['GET'])

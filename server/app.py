@@ -33,4 +33,8 @@ def get_pizzas():
 @app.route('/restaurant_pizzas', methods=['POST'])
 def create_restaurant_pizza():
     data = request.get_json()
-   
+    pizza_id = data.get('pizza_id')
+    restaurant_id = data.get('restaurant_id')
+    price = data.get('price')
+    if pizza_id and restaurant_id and price:
+        

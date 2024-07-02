@@ -37,4 +37,9 @@ def create_restaurant_pizza():
     restaurant_id = data.get('restaurant_id')
     price = data.get('price')
     if pizza_id and restaurant_id and price:
-        
+        restaurant_pizza = RestaurantPizza(restaurant_id=restaurant_id, pizza_id=pizza_id, price=price)
+        db.session.add(restaurant_pizza)
+        db.session.commit()
+        return jsonify(restaurant_pizza.to_dict()), 201
+    else:
+        return jsonify({'errors': 'Invalid request'}), 400

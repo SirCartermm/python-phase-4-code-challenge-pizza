@@ -1,4 +1,4 @@
-from flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy # type: ignore
 
 db = SQLAlchemy()
 
@@ -21,3 +21,10 @@ class RestaurantPizza(db.Model):
     pizza_id = db.Column(db.Integer, db.ForeignKey('pizza.id'), nullable=False)
     restaurant = db.relationship('Restaurant', backref=db.backref('restaurant_pizzas', lazy=True, cascade='all, delete'))
     pizza = db.relationship('Pizza', backref=db.backref('restaurant_pizzas', lazy=True, cascade='all, delete'))
+
+class RestaurantPizza(db.Model):
+    price = db.Column(db.Integer, nullable=False)
+    def __init__(self, kwargs):
+        super().__init__(kwargs)
+        if self.price < 1 or self.price > 30:
+            raise ValueError("Price must be between 1 and 30")

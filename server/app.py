@@ -8,3 +8,9 @@ def get_restaurants():
     return jsonify([r.to_dict() for r in restaurants])
 
 @app.route('/restaurants/<int:id>', methods=['GET'])
+def get_restaurant(id):
+    restaurant = Restaurant.query.get(id)
+    if restaurant:
+        return jsonify(restaurant.to_dict())
+    else:
+       

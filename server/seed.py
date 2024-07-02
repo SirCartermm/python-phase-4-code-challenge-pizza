@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 
-from app import app
+from .app import app
 from models import db, Restaurant, Pizza, RestaurantPizza
 
-with app.app_context():
+with app.app_context(): # type: ignore
 
     # This will delete any existing rows
     # so you can run the seed file multiple times without having duplicate entries in your database
@@ -29,9 +29,9 @@ with app.app_context():
 
     print("Creating RestaurantPizza...")
 
-    pr1 = RestaurantPizza(restaurant=shack, pizza=cheese, price=1)
-    pr2 = RestaurantPizza(restaurant=bistro, pizza=pepperoni, price=4)
-    pr3 = RestaurantPizza(restaurant=palace, pizza=california, price=5)
+    pr1 = RestaurantPizza(restaurant=shack, pizza=cheese, price=1) # type: ignore
+    pr2 = RestaurantPizza(restaurant=bistro, pizza=pepperoni, price=4) # type: ignore
+    pr3 = RestaurantPizza(restaurant=palace, pizza=california, price=5) # type: ignore
     restaurantPizzas = [pr1, pr2, pr3]
     db.session.add_all(restaurants)
     db.session.add_all(pizzas)

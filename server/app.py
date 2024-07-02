@@ -27,4 +27,10 @@ def delete_restaurant(id):
 
 @app.route('/pizzas', methods=['GET'])
 def get_pizzas():
+    pizzas = Pizza.query.all()
+    return jsonify([p.to_dict() for p in pizzas])
+
+@app.route('/restaurant_pizzas', methods=['POST'])
+def create_restaurant_pizza():
+    data = request.get_json()
    

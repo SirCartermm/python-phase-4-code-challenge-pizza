@@ -1,4 +1,4 @@
-from flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy # type: ignore
 
 db = SQLAlchemy()
 
@@ -15,6 +15,7 @@ class Restaurant(db.Model):
             'address': self.address,
             'restaurant_pizzas': [rp.to_dict() for rp in self.restaurant_pizzas]
         }
+from app import db
 
 class Pizza(db.Model):
     id = db.Column(db.Integer, primary_key=True)

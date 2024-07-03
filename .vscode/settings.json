@@ -6,6 +6,8 @@
         "backcall",
         "backref",
         "dateutil",
+        "dbmodel",
+        "EMEDIUMTYPE",
         "exceptiongroup",
         "Geri",
         "importlib",
@@ -13,6 +15,7 @@
         "ipdb",
         "ipython",
         "itsdangerous",
+        "jsonify",
         "Kiki's",
         "markupsafe",
         "matplotlib",
@@ -34,5 +37,12 @@
         "wcwidth",
         "werkzeug",
         "zipp"
-    ]
+    ],
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.autoImportCompletions": true,
+    "python.testing.pytestArgs": [
+        "server"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
 }

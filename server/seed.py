@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 
+
+from models import db, Restaurant, Pizza, RestaurantPizza # type: ignore
+
 from app import app
-from models import db, Restaurant, Pizza, RestaurantPizza
 
 with app.app_context(): # type: ignore
 

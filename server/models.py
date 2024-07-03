@@ -7,6 +7,14 @@ class Restaurant(db.Model):
     name = db.Column(db.String(100), nullable=False)
     address = db.Column(db.String(200), nullable=False)
     restaurant_pizzas = db.relationship('RestaurantPizza', backref='restaurant', cascade='all, delete-orphan')
+     
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'address': self.address,
+            'restaurant_pizzas': [rp.to_dict() for rp in self.restaurant_pizzas]
+        }
 
 class Pizza(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -14,6 +22,12 @@ class Pizza(db.Model):
     ingredients = db.Column(db.String(200), nullable=False)
     restaurant_pizzas = db.relationship('RestaurantPizza', backref='pizza', cascade='all, delete-orphan')
 
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'ingredients': self.ingredients
+        }
 class RestaurantPizza(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     price = db.Column(db.Float, nullable=False)

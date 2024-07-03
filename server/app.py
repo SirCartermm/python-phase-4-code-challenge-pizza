@@ -1,4 +1,14 @@
-from flask import jsonify, request
+# server/app.py
+from server import Flask  # type: ignore
+from flask_sqlalchemy import SQLAlchemy  # type: ignore
+
+app = Flask(__name__)
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:////tmp/test.db"
+db = SQLAlchemy(app)
+
+
+class pizza(dbmodel ) # type: ignore
+from flask import jsonify, request # type: ignore
 from server import app, db # type: ignore
 from server.models import Restaurant, Pizza, RestaurantPizza
 
